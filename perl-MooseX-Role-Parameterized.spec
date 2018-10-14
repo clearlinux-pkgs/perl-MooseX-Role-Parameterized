@@ -4,13 +4,13 @@
 #
 Name     : perl-MooseX-Role-Parameterized
 Version  : 1.10
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/MooseX-Role-Parameterized-1.10.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/MooseX-Role-Parameterized-1.10.tar.gz
 Summary  : 'Moose roles with composition parameters'
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
-Requires: perl-MooseX-Role-Parameterized-license
+Requires: perl-MooseX-Role-Parameterized-license = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(CPAN::Meta::Check)
 BuildRequires : perl(Module::Build::Tiny)
@@ -36,7 +36,7 @@ Moose roles with composition parameters
 %package dev
 Summary: dev components for the perl-MooseX-Role-Parameterized package.
 Group: Development
-Provides: perl-MooseX-Role-Parameterized-devel
+Provides: perl-MooseX-Role-Parameterized-devel = %{version}-%{release}
 
 %description dev
 dev components for the perl-MooseX-Role-Parameterized package.
@@ -68,12 +68,12 @@ fi
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/perl-MooseX-Role-Parameterized
-cp LICENSE %{buildroot}/usr/share/doc/perl-MooseX-Role-Parameterized/LICENSE
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-MooseX-Role-Parameterized
+cp LICENSE %{buildroot}/usr/share/package-licenses/perl-MooseX-Role-Parameterized/LICENSE
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -82,14 +82,14 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/MooseX/Role/Parameterised.pm
-/usr/lib/perl5/site_perl/5.26.1/MooseX/Role/Parameterized.pm
-/usr/lib/perl5/site_perl/5.26.1/MooseX/Role/Parameterized/Extending.pod
-/usr/lib/perl5/site_perl/5.26.1/MooseX/Role/Parameterized/Meta/Role/Parameterized.pm
-/usr/lib/perl5/site_perl/5.26.1/MooseX/Role/Parameterized/Meta/Trait/Parameterizable.pm
-/usr/lib/perl5/site_perl/5.26.1/MooseX/Role/Parameterized/Meta/Trait/Parameterized.pm
-/usr/lib/perl5/site_perl/5.26.1/MooseX/Role/Parameterized/Parameters.pm
-/usr/lib/perl5/site_perl/5.26.1/MooseX/Role/Parameterized/Tutorial.pod
+/usr/lib/perl5/vendor_perl/5.26.1/MooseX/Role/Parameterised.pm
+/usr/lib/perl5/vendor_perl/5.26.1/MooseX/Role/Parameterized.pm
+/usr/lib/perl5/vendor_perl/5.26.1/MooseX/Role/Parameterized/Extending.pod
+/usr/lib/perl5/vendor_perl/5.26.1/MooseX/Role/Parameterized/Meta/Role/Parameterized.pm
+/usr/lib/perl5/vendor_perl/5.26.1/MooseX/Role/Parameterized/Meta/Trait/Parameterizable.pm
+/usr/lib/perl5/vendor_perl/5.26.1/MooseX/Role/Parameterized/Meta/Trait/Parameterized.pm
+/usr/lib/perl5/vendor_perl/5.26.1/MooseX/Role/Parameterized/Parameters.pm
+/usr/lib/perl5/vendor_perl/5.26.1/MooseX/Role/Parameterized/Tutorial.pod
 
 %files dev
 %defattr(-,root,root,-)
@@ -103,5 +103,5 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/share/man/man3/MooseX::Role::Parameterized::Tutorial.3
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/perl-MooseX-Role-Parameterized/LICENSE
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-MooseX-Role-Parameterized/LICENSE
