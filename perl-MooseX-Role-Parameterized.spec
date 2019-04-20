@@ -4,10 +4,10 @@
 #
 Name     : perl-MooseX-Role-Parameterized
 Version  : 1.10
-Release  : 8
+Release  : 9
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/MooseX-Role-Parameterized-1.10.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/MooseX-Role-Parameterized-1.10.tar.gz
-Summary  : 'Moose roles with composition parameters'
+Summary  : roles with composition parameters
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
 Requires: perl-MooseX-Role-Parameterized-license = %{version}-%{release}
@@ -37,6 +37,7 @@ Moose roles with composition parameters
 Summary: dev components for the perl-MooseX-Role-Parameterized package.
 Group: Development
 Provides: perl-MooseX-Role-Parameterized-devel = %{version}-%{release}
+Requires: perl-MooseX-Role-Parameterized = %{version}-%{release}
 
 %description dev
 dev components for the perl-MooseX-Role-Parameterized package.
