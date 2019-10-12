@@ -1,5 +1,8 @@
-1.10
+1.11
 perl(CPAN::Meta::Check)
+perl(ExtUtils::Config)
+perl(ExtUtils::Helpers)
+perl(ExtUtils::InstallPaths)
 perl(Module::Build::Tiny)
 perl(Module::Runtime)
 perl(Moose)
@@ -11,6 +14,7 @@ perl(Moose::Util::TypeConstraints)
 perl(MooseX::Role::WithOverloading)
 perl(Test::Fatal)
 perl(Test::Moose)
+perl(Test::Needs)
 perl(Test::Requires)
 perl(namespace::autoclean)
 perl(namespace::clean)
