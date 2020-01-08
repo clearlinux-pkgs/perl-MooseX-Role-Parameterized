@@ -4,13 +4,14 @@
 #
 Name     : perl-MooseX-Role-Parameterized
 Version  : 1.11
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/MooseX-Role-Parameterized-1.11.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/MooseX-Role-Parameterized-1.11.tar.gz
-Summary  : roles with composition parameters
+Summary  : 'Moose roles with composition parameters'
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
 Requires: perl-MooseX-Role-Parameterized-license = %{version}-%{release}
+Requires: perl-MooseX-Role-Parameterized-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(CPAN::Meta::Check)
 BuildRequires : perl(ExtUtils::Config)
@@ -24,9 +25,11 @@ BuildRequires : perl(Moose::Meta::Role)
 BuildRequires : perl(Moose::Role)
 BuildRequires : perl(Moose::Util)
 BuildRequires : perl(Moose::Util::TypeConstraints)
+BuildRequires : perl(MooseX::Role::WithOverloading)
 BuildRequires : perl(Test::Fatal)
 BuildRequires : perl(Test::Moose)
 BuildRequires : perl(Test::Needs)
+BuildRequires : perl(Test::Requires)
 BuildRequires : perl(namespace::autoclean)
 BuildRequires : perl(namespace::clean)
 
@@ -39,7 +42,6 @@ Moose roles with composition parameters
 Summary: dev components for the perl-MooseX-Role-Parameterized package.
 Group: Development
 Provides: perl-MooseX-Role-Parameterized-devel = %{version}-%{release}
-Requires: perl-MooseX-Role-Parameterized = %{version}-%{release}
 Requires: perl-MooseX-Role-Parameterized = %{version}-%{release}
 
 %description dev
@@ -54,8 +56,18 @@ Group: Default
 license components for the perl-MooseX-Role-Parameterized package.
 
 
+%package perl
+Summary: perl components for the perl-MooseX-Role-Parameterized package.
+Group: Default
+Requires: perl-MooseX-Role-Parameterized = %{version}-%{release}
+
+%description perl
+perl components for the perl-MooseX-Role-Parameterized package.
+
+
 %prep
 %setup -q -n MooseX-Role-Parameterized-1.11
+cd %{_builddir}/MooseX-Role-Parameterized-1.11
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -73,7 +85,7 @@ fi
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-MooseX-Role-Parameterized
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-MooseX-Role-Parameterized/LICENSE
+cp %{_builddir}/MooseX-Role-Parameterized-1.11/LICENSE %{buildroot}/usr/share/package-licenses/perl-MooseX-Role-Parameterized/02baa9a7c1e8cd4e565c56a6af13a63d650805ef
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -86,14 +98,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/MooseX/Role/Parameterised.pm
-/usr/lib/perl5/vendor_perl/5.28.2/MooseX/Role/Parameterized.pm
-/usr/lib/perl5/vendor_perl/5.28.2/MooseX/Role/Parameterized/Extending.pod
-/usr/lib/perl5/vendor_perl/5.28.2/MooseX/Role/Parameterized/Meta/Role/Parameterized.pm
-/usr/lib/perl5/vendor_perl/5.28.2/MooseX/Role/Parameterized/Meta/Trait/Parameterizable.pm
-/usr/lib/perl5/vendor_perl/5.28.2/MooseX/Role/Parameterized/Meta/Trait/Parameterized.pm
-/usr/lib/perl5/vendor_perl/5.28.2/MooseX/Role/Parameterized/Parameters.pm
-/usr/lib/perl5/vendor_perl/5.28.2/MooseX/Role/Parameterized/Tutorial.pod
 
 %files dev
 %defattr(-,root,root,-)
@@ -108,4 +112,15 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-MooseX-Role-Parameterized/LICENSE
+/usr/share/package-licenses/perl-MooseX-Role-Parameterized/02baa9a7c1e8cd4e565c56a6af13a63d650805ef
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/MooseX/Role/Parameterised.pm
+/usr/lib/perl5/vendor_perl/5.30.1/MooseX/Role/Parameterized.pm
+/usr/lib/perl5/vendor_perl/5.30.1/MooseX/Role/Parameterized/Extending.pod
+/usr/lib/perl5/vendor_perl/5.30.1/MooseX/Role/Parameterized/Meta/Role/Parameterized.pm
+/usr/lib/perl5/vendor_perl/5.30.1/MooseX/Role/Parameterized/Meta/Trait/Parameterizable.pm
+/usr/lib/perl5/vendor_perl/5.30.1/MooseX/Role/Parameterized/Meta/Trait/Parameterized.pm
+/usr/lib/perl5/vendor_perl/5.30.1/MooseX/Role/Parameterized/Parameters.pm
+/usr/lib/perl5/vendor_perl/5.30.1/MooseX/Role/Parameterized/Tutorial.pod
