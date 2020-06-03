@@ -4,7 +4,7 @@
 #
 Name     : perl-MooseX-Role-Parameterized
 Version  : 1.11
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/MooseX-Role-Parameterized-1.11.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/MooseX-Role-Parameterized-1.11.tar.gz
 Summary  : 'Moose roles with composition parameters'
@@ -116,11 +116,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.2/MooseX/Role/Parameterised.pm
-/usr/lib/perl5/vendor_perl/5.30.2/MooseX/Role/Parameterized.pm
-/usr/lib/perl5/vendor_perl/5.30.2/MooseX/Role/Parameterized/Extending.pod
-/usr/lib/perl5/vendor_perl/5.30.2/MooseX/Role/Parameterized/Meta/Role/Parameterized.pm
-/usr/lib/perl5/vendor_perl/5.30.2/MooseX/Role/Parameterized/Meta/Trait/Parameterizable.pm
-/usr/lib/perl5/vendor_perl/5.30.2/MooseX/Role/Parameterized/Meta/Trait/Parameterized.pm
-/usr/lib/perl5/vendor_perl/5.30.2/MooseX/Role/Parameterized/Parameters.pm
-/usr/lib/perl5/vendor_perl/5.30.2/MooseX/Role/Parameterized/Tutorial.pod
+/usr/lib/perl5/vendor_perl/5.30.3/MooseX/Role/Parameterised.pm
+/usr/lib/perl5/vendor_perl/5.30.3/MooseX/Role/Parameterized.pm
+/usr/lib/perl5/vendor_perl/5.30.3/MooseX/Role/Parameterized/Extending.pod
+/usr/lib/perl5/vendor_perl/5.30.3/MooseX/Role/Parameterized/Meta/Role/Parameterized.pm
+/usr/lib/perl5/vendor_perl/5.30.3/MooseX/Role/Parameterized/Meta/Trait/Parameterizable.pm
+/usr/lib/perl5/vendor_perl/5.30.3/MooseX/Role/Parameterized/Meta/Trait/Parameterized.pm
+/usr/lib/perl5/vendor_perl/5.30.3/MooseX/Role/Parameterized/Parameters.pm
+/usr/lib/perl5/vendor_perl/5.30.3/MooseX/Role/Parameterized/Tutorial.pod
