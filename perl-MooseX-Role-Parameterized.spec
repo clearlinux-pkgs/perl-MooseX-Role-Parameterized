@@ -4,7 +4,7 @@
 #
 Name     : perl-MooseX-Role-Parameterized
 Version  : 1.11
-Release  : 17
+Release  : 18
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/MooseX-Role-Parameterized-1.11.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/MooseX-Role-Parameterized-1.11.tar.gz
 Summary  : 'Moose roles with composition parameters'
